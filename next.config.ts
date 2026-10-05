@@ -1,6 +1,13 @@
 import type { NextConfig } from 'next';
+import path from 'path';
 
 const nextConfig: NextConfig = {
+  /* ── Pin the workspace root (avoids false "multiple lockfiles" detection
+     when a stray lockfile exists elsewhere on the machine) ── */
+  turbopack: {
+    root: path.join(__dirname),
+  },
+
   /* ── Image optimisation ── */
   images: {
     formats: ['image/avif', 'image/webp'],
