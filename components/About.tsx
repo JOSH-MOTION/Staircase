@@ -1,6 +1,7 @@
 'use client';
 
 import { motion } from 'motion/react';
+import Link from 'next/link';
 import { Play } from 'lucide-react';
 
 const reveal = {
@@ -37,16 +38,9 @@ export default function About() {
 
             <div className="video">
               <img src="/assets/img/menu/wings-fries.jpg" alt="STAIRCASE specialties" />
-              <a
-                href="#menu"
-                aria-label="View our menu"
-                onClick={(e) => {
-                  e.preventDefault();
-                  document.getElementById('menu')?.scrollIntoView({ behavior: 'smooth' });
-                }}
-              >
+              <Link href="/menu" aria-label="View our menu">
                 <Play fill="currentColor" />
-              </a>
+              </Link>
             </div>
           </motion.div>
         </div>

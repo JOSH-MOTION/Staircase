@@ -1,39 +1,30 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { Menu as MenuIcon, X } from 'lucide-react';
 
 const NAV_LINKS = [
-  { name: 'Home', href: '#hero', id: 'hero' },
-  { name: 'About', href: '#about', id: 'about' },
-  { name: 'Menu', href: '#menu', id: 'menu' },
-  { name: 'Contact', href: '#contact', id: 'contact' },
+  { name: 'Home', href: '/' },
+  { name: 'About', href: '/about' },
+  { name: 'Menu', href: '/menu' },
+  { name: 'Services', href: '/services' },
+  { name: 'Pricing', href: '/pricing' },
+  { name: 'Testimonials', href: '/testimonials' },
+  { name: 'FAQ', href: '/faq' },
+  { name: 'Contact', href: '/contact' },
 ];
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
-  const [activeSection, setActiveSection] = useState('hero');
   const [isScrolled, setIsScrolled] = useState(false);
+  const pathname = usePathname();
 
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 40);
-
-      const sectionIds = ['hero', 'about', 'menu', 'contact'];
-      const scrollPosition = window.scrollY + 120;
-
-      for (let i = sectionIds.length - 1; i >= 0; i--) {
-        const el = document.getElementById(sectionIds[i]);
-        if (el && el.offsetTop <= scrollPosition) {
-          setActiveSection(sectionIds[i]);
-          break;
-        }
-      }
-    };
-
+    const handleScroll = () => setIsScrolled(window.scrollY > 40);
     window.addEventListener('scroll', handleScroll, { passive: true });
     handleScroll();
-
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
@@ -44,35 +35,26 @@ export default function Header() {
     };
   }, [isOpen]);
 
-  const handleNavClick = (
-    e: React.MouseEvent<HTMLAnchorElement>,
-    href: string
-  ) => {
-    e.preventDefault();
+  useEffect(() => {
     setIsOpen(false);
-    const target = document.querySelector(href);
-    if (target) {
-      target.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
+  }, [pathname]);
 
   return (
     <header className={isScrolled ? 'scrolled' : ''}>
       <div className="container header">
-        <a href="#hero" onClick={(e) => handleNavClick(e, '#hero')}>
+        <Link href="/">
           <img className="logo" src="/assets/img/staircase-logo.png" alt="STAIRCASE" />
-        </a>
+        </Link>
 
         <nav className={isOpen ? 'open' : ''}>
           {NAV_LINKS.map((link) => (
-            <a
+            <Link
               key={link.name}
               href={link.href}
-              className={activeSection === link.id ? 'active' : ''}
-              onClick={(e) => handleNavClick(e, link.href)}
+              className={pathname === link.href ? 'active' : ''}
             >
               {link.name}
-            </a>
+            </Link>
           ))}
         </nav>
 

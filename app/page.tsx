@@ -1,34 +1,27 @@
-'use client';
-
-import { useState } from 'react';
 import Header from '../components/Header';
 import Hero from '../components/Hero';
-import About from '../components/About';
-import Menu from '../components/Menu';
+import HomeAboutTeaser from '../components/HomeAboutTeaser';
+import HomeHighlights from '../components/HomeHighlights';
 import Testimonials from '../components/Testimonials';
-import Contact from '../components/Contact';
+import HomeCta from '../components/HomeCta';
 import Footer from '../components/Footer';
 import BackToTop from '../components/BackToTop';
-import Notice from '../components/Notice';
 
 export default function Home() {
-  const [notice, setNotice] = useState('');
-
   return (
     <>
       <Header />
 
       <main>
         <Hero />
-        <About />
-        <Menu />
+        <HomeAboutTeaser />
+        <HomeHighlights />
         <Testimonials />
-        <Contact onNotify={setNotice} />
+        <HomeCta />
       </main>
 
       <Footer />
       <BackToTop />
-      <Notice message={notice} onClose={() => setNotice('')} />
     </>
   );
 }

@@ -2,7 +2,8 @@
 
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { Utensils, Check } from 'lucide-react';
+import { Utensils, Check, Plus } from 'lucide-react';
+import { parsePrice, useCart } from './CartContext';
 
 export interface PriceOption {
   label: string;
@@ -22,7 +23,7 @@ export interface MenuItem {
   highlights?: string;
 }
 
-const CATEGORIES = [
+export const CATEGORIES = [
   { id: 'All', label: 'All Menu' },
   { id: 'Main Dishes', label: 'Main Dishes' },
   { id: 'Fluffy Pancakes', label: 'Fluffy Pancakes' },
@@ -33,7 +34,7 @@ const CATEGORIES = [
 
 type CategoryId = (typeof CATEGORIES)[number]['id'];
 
-const PRODUCTS: MenuItem[] = [
+export const PRODUCTS: MenuItem[] = [
   // MAIN DISHES (FOOD)
   {
     id: 'seafood-premium',
@@ -244,13 +245,26 @@ const reveal = {
   transition: { duration: 0.5 },
 };
 
-function MenuItemCard({ item, index }: { item: MenuItem; index: number }) {
+export function MenuItemCard({ item, index }: { item: MenuItem; index: number }) {
   const [selectedOptionIndex, setSelectedOptionIndex] = useState(0);
   const [imgError, setImgError] = useState(false);
+  const { addItem } = useCart();
 
   const displayPrice = item.priceOptions
     ? item.priceOptions[selectedOptionIndex].price
     : item.price;
+
+  const handleAddToOrder = () => {
+    const optionLabel = item.priceOptions
+      ? item.priceOptions[selectedOptionIndex].label
+      : undefined;
+    addItem({
+      id: item.id,
+      name: item.name,
+      optionLabel,
+      unitPrice: parsePrice(displayPrice),
+    });
+  };
 
   return (
     <motion.article
@@ -319,6 +333,13 @@ function MenuItemCard({ item, index }: { item: MenuItem; index: number }) {
             <span className="price-tag-label">Price</span>
             <strong className="price-value">{displayPrice}</strong>
           </div>
+          <button
+            type="button"
+            className="add-to-order-btn"
+            onClick={handleAddToOrder}
+          >
+            <Plus size={15} /> Add to Order
+          </button>
         </div>
       </div>
     </motion.article>
