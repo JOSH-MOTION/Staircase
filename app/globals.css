@@ -1,17 +1,22 @@
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap');
 
 :root {
-  /* Exact brand color system from logo.jpeg */
-  --brand-espresso: #361510;
-  --brand-espresso-light: #4c221b;
-  --brand-orange: #fd8839;
-  --brand-orange-hover: #e67325;
-  --brand-yellow: #fecb02;
-  --brand-yellow-light: #ffea33;
+  /* Exact brand color system sampled from the STAIRCASE logo:
+     lemon (top petal), bright yellow (center glow), golden (left
+     petal), amber (petal overlap), orange (right petal), deep brown
+     (cloche dome). */
+  --brand-espresso: #3a0e02;
+  --brand-espresso-light: #53271b;
+  --brand-orange: #ff8833;
+  --brand-orange-hover: #e6701f;
+  --brand-yellow: #ffe600;
+  --brand-yellow-light: #ffeb3b;
+  --brand-gold: #fdd03b;
+  --brand-amber: #ffb800;
   --brand-dark: #24262a;
   --brand-cream: #fffbf4;
   --brand-tint: #fff2e8;
-  --text-main: #361510;
+  --text-main: #3a0e02;
   --text-muted: #6b4d46;
 
   /* Aliases for backwards compatibility */
@@ -72,13 +77,13 @@ header {
   z-index: 100;
   height: 80px;
   background: var(--brand-orange);
-  box-shadow: 0 4px 16px rgba(54, 21, 16, 0.12);
+  box-shadow: 0 4px 16px rgba(58, 14, 2, 0.12);
   transition: box-shadow 0.3s ease, height 0.25s ease;
 }
 
 header.scrolled {
   height: 66px;
-  box-shadow: 0 6px 24px rgba(36, 14, 10, 0.28);
+  box-shadow: 0 6px 24px rgba(58, 14, 2, 0.28);
 }
 
 .header {
@@ -188,7 +193,7 @@ nav a.active {
 
 .button:hover {
   transform: translateY(-3px);
-  box-shadow: 0 10px 20px rgba(54, 21, 16, 0.25);
+  box-shadow: 0 10px 20px rgba(58, 14, 2, 0.25);
 }
 
 .yellow {
@@ -224,7 +229,7 @@ nav a.active {
   object-fit: contain;
   position: relative;
   z-index: 2;
-  filter: drop-shadow(0 18px 15px rgba(54, 21, 16, 0.4));
+  filter: drop-shadow(0 18px 15px rgba(58, 14, 2, 0.4));
 }
 
 .sun {
@@ -366,7 +371,7 @@ nav a.active {
 
 .filter-nav-btn {
   background: #ffffff;
-  border: 1.5px solid rgba(253, 136, 57, 0.2);
+  border: 1.5px solid rgba(255, 136, 51, 0.2);
   color: var(--brand-espresso);
   font-weight: 600;
   font-size: 14px;
@@ -374,7 +379,7 @@ nav a.active {
   border-radius: 30px;
   transition: all 0.25s cubic-bezier(0.2, 0, 0, 1);
   cursor: pointer;
-  box-shadow: 0 2px 6px rgba(54, 21, 16, 0.02);
+  box-shadow: 0 2px 6px rgba(58, 14, 2, 0.02);
 }
 
 .filter-nav-btn:hover {
@@ -388,14 +393,14 @@ nav a.active {
   background: linear-gradient(135deg, #fd8839 0%, #e67325 100%);
   color: #ffffff;
   border-color: var(--brand-orange);
-  box-shadow: 0 6px 18px rgba(253, 136, 57, 0.35);
+  box-shadow: 0 6px 18px rgba(255, 136, 51, 0.35);
   transform: translateY(-2px);
 }
 
 /* Premium Toppings Bar */
 .premium-toppings-bar {
   background: linear-gradient(135deg, #ffffff 0%, #fff7ef 100%);
-  border: 1.5px dashed rgba(253, 136, 57, 0.35);
+  border: 1.5px dashed rgba(255, 136, 51, 0.35);
   border-radius: 18px;
   padding: 16px 24px;
   margin: 0 auto 40px;
@@ -405,7 +410,7 @@ nav a.active {
   justify-content: space-between;
   flex-wrap: wrap;
   gap: 14px;
-  box-shadow: 0 4px 16px rgba(253, 136, 57, 0.06);
+  box-shadow: 0 4px 16px rgba(255, 136, 51, 0.06);
 }
 
 .toppings-intro {
@@ -441,11 +446,11 @@ nav a.active {
   font-weight: 600;
   padding: 5px 14px;
   border-radius: 20px;
-  border: 1px solid rgba(253, 136, 57, 0.25);
+  border: 1px solid rgba(255, 136, 51, 0.25);
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  box-shadow: 0 2px 5px rgba(54, 21, 16, 0.03);
+  box-shadow: 0 2px 5px rgba(58, 14, 2, 0.03);
 }
 
 .topping-check {
@@ -462,8 +467,8 @@ nav a.active {
 .modern-menu-card {
   background: #ffffff;
   border-radius: 22px;
-  border: 1px solid rgba(253, 136, 57, 0.16);
-  box-shadow: 0 6px 20px rgba(54, 21, 16, 0.04);
+  border: 1px solid rgba(255, 136, 51, 0.16);
+  box-shadow: 0 6px 20px rgba(58, 14, 2, 0.04);
   overflow: hidden;
   display: flex;
   flex-direction: column;
@@ -473,8 +478,8 @@ nav a.active {
 
 .modern-menu-card:hover {
   transform: translateY(-8px);
-  box-shadow: 0 18px 40px rgba(54, 21, 16, 0.1);
-  border-color: rgba(253, 136, 57, 0.45);
+  box-shadow: 0 18px 40px rgba(58, 14, 2, 0.1);
+  border-color: rgba(255, 136, 51, 0.45);
 }
 
 /* Card Media */
@@ -503,7 +508,7 @@ nav a.active {
 .card-media-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 50%, rgba(54, 21, 16, 0.2) 100%);
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 50%, rgba(58, 14, 2, 0.2) 100%);
   pointer-events: none;
 }
 
@@ -512,8 +517,8 @@ nav a.active {
   top: 12px;
   right: 12px;
   z-index: 3;
-  background: linear-gradient(135deg, #fd8839 0%, #e67325 100%);
-  color: #ffffff;
+  background: linear-gradient(135deg, var(--brand-gold) 0%, var(--brand-amber) 100%);
+  color: var(--brand-espresso);
   font-size: 11px;
   font-weight: 700;
   letter-spacing: 0.5px;
@@ -589,11 +594,11 @@ nav a.active {
 
 /* Portion Selector Tabs */
 .portion-selector {
-  background: rgba(253, 136, 57, 0.06);
+  background: rgba(255, 136, 51, 0.06);
   border-radius: 12px;
   padding: 8px 10px;
   margin-bottom: 14px;
-  border: 1px solid rgba(253, 136, 57, 0.12);
+  border: 1px solid rgba(255, 136, 51, 0.12);
 }
 
 .portion-label {
@@ -614,7 +619,7 @@ nav a.active {
 .portion-btn {
   flex: 1;
   background: #ffffff;
-  border: 1px solid rgba(253, 136, 57, 0.2);
+  border: 1px solid rgba(255, 136, 51, 0.2);
   border-radius: 8px;
   padding: 5px 8px;
   display: flex;
@@ -631,7 +636,7 @@ nav a.active {
   background: var(--brand-orange);
   color: #ffffff;
   border-color: var(--brand-orange);
-  box-shadow: 0 2px 8px rgba(253, 136, 57, 0.3);
+  box-shadow: 0 2px 8px rgba(255, 136, 51, 0.3);
 }
 
 .portion-price-preview {
@@ -649,7 +654,7 @@ nav a.active {
   align-items: center;
   justify-content: space-between;
   padding-top: 14px;
-  border-top: 1px dashed rgba(253, 136, 57, 0.2);
+  border-top: 1px dashed rgba(255, 136, 51, 0.2);
   margin-top: auto;
 }
 
@@ -683,7 +688,7 @@ nav a.active {
   background: var(--brand-cream);
   border-radius: 18px;
   min-height: 270px;
-  border: 1px solid rgba(253, 136, 57, 0.15);
+  border: 1px solid rgba(255, 136, 51, 0.15);
 }
 
 .quote {
@@ -722,7 +727,7 @@ nav a.active {
   border-radius: 50%;
   width: 12px;
   height: 12px;
-  background: rgba(54, 21, 16, 0.2);
+  background: rgba(58, 14, 2, 0.2);
   padding: 0;
   transition: background 0.2s ease, transform 0.2s ease;
 }
@@ -741,7 +746,7 @@ nav a.active {
 .form input,
 .form textarea {
   width: 100%;
-  border: 1px solid rgba(54, 21, 16, 0.18);
+  border: 1px solid rgba(58, 14, 2, 0.18);
   background: white;
   border-radius: 6px;
   padding: 15px 18px;
@@ -754,22 +759,7 @@ nav a.active {
 .form input:focus,
 .form textarea:focus {
   border-color: var(--brand-orange);
-  box-shadow: 0 0 0 3px rgba(253, 136, 57, 0.15);
-}
-
-.booking {
-  grid-template-columns: repeat(3, 1fr);
-  max-width: 980px;
-  margin: auto;
-}
-
-.booking textarea {
-  grid-column: 1 / -1;
-}
-
-.booking button {
-  grid-column: 1 / -1;
-  justify-self: center;
+  box-shadow: 0 0 0 3px rgba(255, 136, 51, 0.15);
 }
 
 /* Contact & Map */
@@ -777,7 +767,7 @@ nav a.active {
   margin-bottom: 48px;
   overflow: hidden;
   border-radius: 10px;
-  box-shadow: 0 4px 20px rgba(54, 21, 16, 0.08);
+  box-shadow: 0 4px 20px rgba(58, 14, 2, 0.08);
 }
 
 .map-container iframe {
@@ -849,7 +839,7 @@ footer {
 
 .footer-grid {
   display: grid;
-  grid-template-columns: 1.2fr 1.3fr 1.2fr 1fr;
+  grid-template-columns: 1.2fr 1.3fr 1.2fr;
   gap: 35px;
 }
 
@@ -1109,9 +1099,6 @@ footer {
     background: rgba(255, 255, 255, 0.07);
   }
 
-  .booking {
-    grid-template-columns: 1fr 1fr;
-  }
 }
 
 @media (max-width: 600px) {
@@ -1220,19 +1207,6 @@ footer {
 
   .about-wall {
     height: auto;
-  }
-
-  .booking {
-    grid-template-columns: 1fr;
-  }
-
-  .booking textarea,
-  .booking button {
-    grid-column: auto;
-  }
-
-  .booking button {
-    width: 100%;
   }
 
   .contact-form > div {

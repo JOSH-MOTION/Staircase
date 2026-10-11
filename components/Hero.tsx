@@ -9,7 +9,7 @@ export default function Hero() {
 
   const handleExploreClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
-    const el = document.getElementById('book');
+    const el = document.getElementById('menu');
     if (el) {
       el.scrollIntoView({ behavior: 'smooth' });
     }
@@ -27,7 +27,7 @@ export default function Hero() {
           <p>favorie! Everyone&apos;s favorite</p>
           <a
             className="button yellow"
-            href="#book"
+            href="#menu"
             onClick={handleExploreClick}
           >
             Explore <ArrowRight size={17} />

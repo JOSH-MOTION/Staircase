@@ -55,8 +55,6 @@ export const metadata: Metadata = {
   /* ── Twitter / X Card ── */
   twitter: {
     card: 'summary_large_image',
-    site: '@favoriefoods',
-    creator: '@favoriefoods',
     title: 'STAIRCASE | Irresistible Taste',
     description:
       'Handcrafted main dishes, fluffy pancakes, gourmet ice cream & signature cocktails in Ghana.',
@@ -104,8 +102,8 @@ const jsonLd = {
   description:
     'STAIRCASE serves irresistible tastes in Ghana. Enjoy handcrafted main dishes, fluffy pancakes, gourmet ice cream, strawberry treats & signature cocktails.',
   servesCuisine: ['Ghanaian', 'Desserts', 'Cocktails'],
-  telephone: '+233539026605',
-  email: 'contact@favoriefoods.com',
+  telephone: '+233549920071',
+  email: 'itscouragej@gmail.com',
   url: SITE_URL,
   address: {
     '@type': 'PostalAddress',
@@ -125,14 +123,9 @@ const jsonLd = {
         'Saturday',
         'Sunday',
       ],
-      opens: '10:00',
-      closes: '00:00',
+      opens: '09:00',
+      closes: '23:00',
     },
-  ],
-  sameAs: [
-    'https://x.com/favoriefoods',
-    'https://instagram.com/favorie_',
-    'https://snapchat.com/t/StzhqvTn',
   ],
 };
 

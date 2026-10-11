@@ -6,7 +6,6 @@ import Hero from '../components/Hero';
 import About from '../components/About';
 import Menu from '../components/Menu';
 import Testimonials from '../components/Testimonials';
-import Booking from '../components/Booking';
 import Contact from '../components/Contact';
 import Footer from '../components/Footer';
 import BackToTop from '../components/BackToTop';
@@ -24,7 +23,6 @@ export default function Home() {
         <About />
         <Menu />
         <Testimonials />
-        <Booking onNotify={setNotice} />
         <Contact onNotify={setNotice} />
       </main>
 

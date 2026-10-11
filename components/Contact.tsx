@@ -35,8 +35,8 @@ export default function Contact({ onNotify }: ContactProps) {
           className="map-container"
         >
           <iframe
-            title="Favorie Foods Location Map"
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3962.790443317469!2d-1.5658154264945927!3d6.672867621412632!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xfdb95b09e004b97%3A0xcfef7dcfcf76769c!2sFavorie%20Foods!5e0!3m2!1sen!2sgh!4v1735408101800!5m2!1sen!2sgh"
+            title="STAIRCASE Location Map"
+            src="https://www.google.com/maps?q=Nana+Adoma+Hostel+Engineering+Gate+Ghana&output=embed"
             width="100%"
             height="380"
             style={{ border: 0, borderRadius: '8px' }}
@@ -67,10 +67,9 @@ export default function Contact({ onNotify }: ContactProps) {
             <div>
               <Phone />
               <div>
-                <b>Call Us</b>
+                <b>Call / WhatsApp</b>
                 <p>
-                  <a href="tel:0539026605">0539026605</a> /{' '}
-                  <a href="tel:0504075802">0504075802</a>
+                  <a href="tel:0549920071">0549 920 071</a>
                 </p>
               </div>
             </div>
@@ -80,8 +79,8 @@ export default function Contact({ onNotify }: ContactProps) {
               <div>
                 <b>Email Us</b>
                 <p>
-                  <a href="mailto:contact@favoriefoods.com">
-                    contact@favoriefoods.com
+                  <a href="mailto:itscouragej@gmail.com">
+                    itscouragej@gmail.com
                   </a>
                 </p>
               </div>
@@ -92,7 +91,7 @@ export default function Contact({ onNotify }: ContactProps) {
               <div>
                 <b>Opening Hours</b>
                 <p>
-                  <strong>Everyday:</strong> 10AM – 12AM
+                  <strong>Monday – Sunday:</strong> 9:00 AM – 11:00 PM
                 </p>
               </div>
             </div>

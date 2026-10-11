@@ -21,45 +21,15 @@ export default function Footer() {
         <div>
           <h3>Contact</h3>
           <p>
-            <strong>Phone:</strong> 0539026605 / 0504075802
+            <strong>Phone / WhatsApp:</strong> 0549 920 071
             <br />
-            <strong>Email:</strong> contact@favoriefoods.com
+            <strong>Email:</strong> itscouragej@gmail.com
           </p>
-        </div>
-
-        <div>
-          <h3>Follow Us</h3>
-          <div className="footer-socials">
-            <a
-              href="https://x.com/favoriefoods"
-              target="_blank"
-              rel="noreferrer"
-              aria-label="Twitter / X"
-            >
-              X / Twitter
-            </a>
-            <a
-              href="https://snapchat.com/t/StzhqvTn"
-              target="_blank"
-              rel="noreferrer"
-              aria-label="Snapchat"
-            >
-              Snapchat
-            </a>
-            <a
-              href="https://instagram.com/favorie_"
-              target="_blank"
-              rel="noreferrer"
-              aria-label="Instagram"
-            >
-              Instagram
-            </a>
-          </div>
         </div>
       </div>
 
       <div className="copyright">
-        © {currentYear} Favorie Foods · All Rights Reserved
+        © {currentYear} STAIRCASE · All Rights Reserved
       </div>
     </footer>
   );
