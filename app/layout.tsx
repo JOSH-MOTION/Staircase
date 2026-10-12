@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from 'next';
 import { Analytics } from '@vercel/analytics/next';
 import Providers from '../components/Providers';
+import FirebaseAnalytics from '../components/FirebaseAnalytics';
 import './globals.css';
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://staircase.vercel.app';
@@ -147,6 +148,7 @@ export default function RootLayout({
       <body>
         <Providers>{children}</Providers>
         <Analytics />
+        <FirebaseAnalytics />
       </body>
     </html>
   );
