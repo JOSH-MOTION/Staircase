@@ -3,7 +3,8 @@
 import { motion } from 'motion/react';
 import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
-import { CATEGORIES, PRODUCTS } from './Menu';
+import { CATEGORIES } from '../lib/menu';
+import { useMenuItems } from './useMenuItems';
 import { parsePrice } from './CartContext';
 
 const reveal = {
@@ -15,6 +16,7 @@ const reveal = {
 
 export default function Pricing() {
   const categories = CATEGORIES.filter((c) => c.id !== 'All');
+  const { items: PRODUCTS } = useMenuItems();
 
   return (
     <section className="section cream">

@@ -3,7 +3,8 @@
 import { motion } from 'motion/react';
 import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
-import { PRODUCTS, MenuItemCard } from './Menu';
+import { MenuItemCard } from './Menu';
+import { useMenuItems } from './useMenuItems';
 
 const FEATURED_IDS = ['seafood-premium', 'jollof-goat', 'icecream-strawberry'];
 
@@ -15,9 +16,18 @@ const reveal = {
 };
 
 export default function HomeHighlights() {
-  const featured = FEATURED_IDS.map((id) =>
-    PRODUCTS.find((p) => p.id === id)
+  const { items } = useMenuItems();
+
+  let featured = FEATURED_IDS.map((id) =>
+    items.find((p) => p.id === id)
   ).filter((p): p is NonNullable<typeof p> => Boolean(p));
+
+  // If the preferred picks were removed/renamed via admin, fall back to
+  // whichever items currently carry a badge so Home never looks empty.
+  if (featured.length < 3) {
+    const fallback = items.filter((p) => p.badge && !featured.includes(p));
+    featured = [...featured, ...fallback].slice(0, 3);
+  }
 
   return (
     <section id="menu" className="section modern-menu-section">
