@@ -23,14 +23,19 @@ export default function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: 'easeOut' }}
         >
-          <h1>Serving your favorite doses of happiness all day, everyday</h1>
+          <span className="hero-eyebrow">Fresh • Handcrafted • Everyday</span>
+          <h1>
+            Serving your favorite doses of{' '}
+            <span className="hero-highlight">happiness</span> all day,
+            everyday
+          </h1>
           <p>favorie! Everyone&apos;s favorite</p>
           <a
             className="button yellow"
             href="#menu"
             onClick={handleExploreClick}
           >
-            Explore <ArrowRight size={17} />
+            Order Now <ArrowRight size={17} />
           </a>
         </motion.div>
 
@@ -49,6 +54,15 @@ export default function Hero() {
           <span className="swoosh" />
         </motion.div>
       </div>
+
+      <svg
+        className="hero-divider"
+        viewBox="0 0 1200 90"
+        preserveAspectRatio="none"
+        aria-hidden="true"
+      >
+        <path d="M0,38 C120,68 220,8 360,32 C500,56 560,12 700,30 C840,48 900,70 1040,46 C1120,32 1160,50 1200,40 L1200,90 L0,90 Z" />
+      </svg>
     </section>
   );
 }
