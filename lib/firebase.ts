@@ -6,13 +6,13 @@ import { getFirestore } from 'firebase/firestore';
 // not authorize access (that's what Firebase security rules are for) —
 // so it's safe for this to be committed and shipped to the client.
 const firebaseConfig = {
-  apiKey: 'AIzaSyABanIevxrWG1uy5lz6FlJWfwdGbAAhQk8',
-  authDomain: 'staircase-d0575.firebaseapp.com',
-  projectId: 'staircase-d0575',
-  storageBucket: 'staircase-d0575.firebasestorage.app',
-  messagingSenderId: '951612003134',
-  appId: '1:951612003134:web:235b8fb8f4ca9fe019126f',
-  measurementId: 'G-RSYKZHPRCD',
+  apiKey: 'AIzaSyA8O37ODL0VNSbYiavP3fT_wAgAJK955Tg',
+  authDomain: 'staircase-73aaf.firebaseapp.com',
+  projectId: 'staircase-73aaf',
+  storageBucket: 'staircase-73aaf.firebasestorage.app',
+  messagingSenderId: '366521379078',
+  appId: '1:366521379078:web:bcc553dc7af0aeb5795687',
+  measurementId: 'G-NY13P017T8',
 };
 
 export const firebaseApp = getApps().length ? getApp() : initializeApp(firebaseConfig);
