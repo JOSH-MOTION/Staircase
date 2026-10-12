@@ -3,7 +3,8 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Menu as MenuIcon, X } from 'lucide-react';
+import { Menu as MenuIcon, X, User } from 'lucide-react';
+import { useAuth } from './AuthContext';
 
 const NAV_LINKS = [
   { name: 'Home', href: '/' },
@@ -20,6 +21,7 @@ export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const pathname = usePathname();
+  const { user } = useAuth();
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 40);
@@ -58,13 +60,24 @@ export default function Header() {
           ))}
         </nav>
 
-        <button
-          className="toggle"
-          onClick={() => setIsOpen(!isOpen)}
-          aria-label="Toggle menu"
-        >
-          {isOpen ? <X size={24} /> : <MenuIcon size={24} />}
-        </button>
+        <div className="header-actions">
+          <Link
+            href="/account"
+            className="account-link"
+            aria-label="My account"
+          >
+            <User size={20} />
+            {user && <span className="account-dot" />}
+          </Link>
+
+          <button
+            className="toggle"
+            onClick={() => setIsOpen(!isOpen)}
+            aria-label="Toggle menu"
+          >
+            {isOpen ? <X size={24} /> : <MenuIcon size={24} />}
+          </button>
+        </div>
       </div>
     </header>
   );

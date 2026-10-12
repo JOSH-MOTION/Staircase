@@ -120,7 +120,9 @@ export function useCart() {
 export function buildWhatsAppOrderLink(
   lines: CartLine[],
   fulfillment: Fulfillment,
-  total: number
+  total: number,
+  customerName: string,
+  customerPhone: string
 ): string {
   const itemLines = lines
     .map(
@@ -138,7 +140,8 @@ export function buildWhatsAppOrderLink(
     '',
     `Total: GH₵ ${total.toFixed(2)}`,
     '',
-    'Name: ',
+    `Name: ${customerName}`,
+    `Phone: ${customerPhone}`,
     fulfillment === 'Delivery' ? 'Delivery address: ' : '',
   ]
     .filter((l) => l !== '')

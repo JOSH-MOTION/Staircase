@@ -1,4 +1,6 @@
 import { initializeApp, getApps, getApp } from 'firebase/app';
+import { getAuth } from 'firebase/auth';
+import { getFirestore } from 'firebase/firestore';
 
 // Firebase web config values are not secret — they identify the project,
 // not authorize access (that's what Firebase security rules are for) —
@@ -14,3 +16,10 @@ const firebaseConfig = {
 };
 
 export const firebaseApp = getApps().length ? getApp() : initializeApp(firebaseConfig);
+export const auth = getAuth(firebaseApp);
+export const db = getFirestore(firebaseApp);
+
+// Emails allowed into /admin. Enforced here for the UI gate AND in
+// Firestore security rules (rules are the real enforcement — this
+// list alone would not stop someone from reading data directly).
+export const ADMIN_EMAILS = ['itscouragej@gmail.com'];

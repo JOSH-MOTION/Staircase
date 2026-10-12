@@ -1,8 +1,11 @@
 'use client';
 
+import { useEffect, useState } from 'react';
 import { AnimatePresence, motion } from 'motion/react';
 import { Minus, Plus, ShoppingBag, Trash2, X } from 'lucide-react';
 import { buildWhatsAppOrderLink, useCart } from './CartContext';
+import { useAuth } from './AuthContext';
+import { placeOrder } from '../lib/orders';
 
 export default function CartWidget() {
   const {
@@ -14,14 +17,54 @@ export default function CartWidget() {
     closeCart,
     removeLine,
     setQty,
+    clearCart,
     totalItems,
     totalPrice,
   } = useCart();
+  const { user } = useAuth();
 
-  const whatsappLink =
-    lines.length > 0
-      ? buildWhatsAppOrderLink(lines, fulfillment, totalPrice)
-      : null;
+  const [customerName, setCustomerName] = useState('');
+  const [customerPhone, setCustomerPhone] = useState('');
+  const [formError, setFormError] = useState('');
+
+  useEffect(() => {
+    if (!customerName && user?.displayName) {
+      setCustomerName(user.displayName);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [user]);
+
+  const handleCheckout = (e: React.MouseEvent) => {
+    e.preventDefault();
+    const name = customerName.trim();
+    const phone = customerPhone.trim();
+
+    if (!name || !phone) {
+      setFormError('Please enter your name and phone number.');
+      return;
+    }
+    setFormError('');
+
+    const link = buildWhatsAppOrderLink(lines, fulfillment, totalPrice, name, phone);
+    // Open WhatsApp synchronously within the click handler so browsers
+    // don't block it as a popup — the Firestore write happens alongside,
+    // not before, so a slow/failed write never blocks the actual order.
+    window.open(link, '_blank', 'noopener,noreferrer');
+
+    placeOrder({
+      userId: user?.uid ?? null,
+      customerName: name,
+      customerPhone: phone,
+      items: lines,
+      fulfillment,
+      total: totalPrice,
+    }).catch((err) => {
+      console.error('Could not save order record:', err);
+    });
+
+    clearCart();
+    closeCart();
+  };
 
   return (
     <>
@@ -140,15 +183,30 @@ export default function CartWidget() {
                     </div>
                   </div>
 
+                  <div className="cart-contact-fields">
+                    <input
+                      type="text"
+                      placeholder="Your Name"
+                      value={customerName}
+                      onChange={(e) => setCustomerName(e.target.value)}
+                    />
+                    <input
+                      type="tel"
+                      placeholder="Your Phone"
+                      value={customerPhone}
+                      onChange={(e) => setCustomerPhone(e.target.value)}
+                    />
+                  </div>
+                  {formError && <p className="cart-error">{formError}</p>}
+
                   <div className="cart-total">
                     <span>Total</span>
                     <strong>GH₵ {totalPrice.toFixed(2)}</strong>
                   </div>
 
                   <a
-                    href={whatsappLink ?? '#'}
-                    target="_blank"
-                    rel="noreferrer"
+                    href="#"
+                    onClick={handleCheckout}
                     className="button red cart-checkout"
                   >
                     Order via WhatsApp
